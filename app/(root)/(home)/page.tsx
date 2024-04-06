@@ -1,15 +1,30 @@
-import MeetingTypeList from "@/components/MeetingTypeList"
+'use client'
+
+import React, { useState, useEffect } from 'react';
+import MeetingTypeList from "@/components/MeetingTypeList";
 
 const Home = () => {
-  const now = new Date()
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-  const time = now.toLocaleTimeString("en-US", {
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000);
+
+    return function cleanup() {
+      clearInterval(timerID);
+    };
+  });
+
+  function tick() {
+    setCurrentTime(new Date());
+  }
+
+  const time = currentTime.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
-  })
+  });
   const date = new Intl.DateTimeFormat("en-US", { dateStyle: "full" }).format(
-    now
-  )
+    currentTime
+  );
 
   return (
     <section className="flex size-full flex-col gap-5 text-white">
@@ -27,7 +42,7 @@ const Home = () => {
 
       <MeetingTypeList />
     </section>
-  )
+  );
 }
 
-export default Home
+export default Home;
