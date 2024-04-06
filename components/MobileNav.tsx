@@ -24,7 +24,7 @@ const MobileNav = () => {
           />
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-dark-1 text-white">
-          <Link href="/" className="flex items-center gap-1">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/icons/logo.svg"
               width={32}
