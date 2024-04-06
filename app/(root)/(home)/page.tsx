@@ -36,7 +36,8 @@ const Home = () => {
         <div className="flex h-full flex-col justify-between max-md:px-5 max-md:py-8 lg:p-11">
           <Link href="/upcoming">
             <h2 className="glassmorphism max-w-[273px] rounded py-2 text-center text-base font-normal">
-              Upcoming Meetings: {upcomingCalls?.length}
+              Upcoming Meetings: {""}
+              {upcomingCalls?.length === 0 ? "-" : upcomingCalls?.length}
             </h2>
           </Link>
           <div className="flex flex-col gap-2">
