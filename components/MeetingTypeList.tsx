@@ -31,7 +31,6 @@ const MeetingTypeList = () => {
   const { user } = useUser()
   const { toast } = useToast()
 
-  console.log("client", client)
   const createMeeting = async () => {
     if (!client || !user) return
     try {
